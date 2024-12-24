@@ -13,10 +13,9 @@ import lombok.NoArgsConstructor;
 public class EstadoDto {
     private Long id;
     private String nombre;
-    private String abreviatura;
-
     private Long poblacion;
-
     private String descripcion;
+    private String abreviatura;
+    private String tamanio;
     private Pais pais;
 }

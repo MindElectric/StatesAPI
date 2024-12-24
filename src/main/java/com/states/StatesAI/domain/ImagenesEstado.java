@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -12,8 +14,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "imagenes_estado")
 public class ImagenesEstado {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID, generator = "imagenes_estado_id_seq")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private String url;
 

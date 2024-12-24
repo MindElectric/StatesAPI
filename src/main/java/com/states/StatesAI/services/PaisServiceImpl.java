@@ -29,6 +29,9 @@ public class PaisServiceImpl implements PaisService{
 
     @Override
     public Optional<Pais> findOne(Long id) {
-        return paisRepository.findById(id);
+//        return paisRepository.findByIdWithStates(id);
+        Pais country = paisRepository.findByIdWithStates(id).orElseThrow(() -> new RuntimeException("Country not found"));
+        System.out.println("Estados: " + country.getEstado());
+        return Optional.of(country);
     }
 }

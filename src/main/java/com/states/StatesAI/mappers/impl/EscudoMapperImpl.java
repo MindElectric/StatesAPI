@@ -1,11 +1,11 @@
 package com.states.StatesAI.mappers.impl;
 
-import com.states.StatesAI.domain.Escudo;
-import com.states.StatesAI.domain.dto.EscudoDto;
+import com.states.StatesAI.domain.Simbolo;
+import com.states.StatesAI.domain.dto.SimboloDto;
 import com.states.StatesAI.mappers.Mapper;
 import org.modelmapper.ModelMapper;
 
-public class EscudoMapperImpl implements Mapper<Escudo, EscudoDto> {
+public class EscudoMapperImpl implements Mapper<Simbolo, SimboloDto> {
     private final ModelMapper modelMapper;
 
     public EscudoMapperImpl(ModelMapper modelMapper) {
@@ -13,12 +13,12 @@ public class EscudoMapperImpl implements Mapper<Escudo, EscudoDto> {
     }
 
     @Override
-    public EscudoDto mapTo(Escudo escudo) {
-        return modelMapper.map(escudo, EscudoDto.class);
+    public SimboloDto mapTo(Simbolo simbolo) {
+        return modelMapper.map(simbolo, SimboloDto.class);
     }
 
     @Override
-    public Escudo mapFrom(EscudoDto escudoDto) {
-        return modelMapper.map(escudoDto, Escudo.class);
+    public Simbolo mapFrom(SimboloDto simboloDto) {
+        return modelMapper.map(simboloDto, Simbolo.class);
     }
 }

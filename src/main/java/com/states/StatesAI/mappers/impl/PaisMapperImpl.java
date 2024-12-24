@@ -16,6 +16,7 @@ public class PaisMapperImpl implements Mapper<Pais, PaisDto> {
 
     @Override
     public PaisDto mapTo(Pais pais) {
+//        System.out.println("Mapping entity to DTO: " + pais.getDescripcion());
         return modelMapper.map(pais, PaisDto.class);
     }
 
@@ -24,3 +25,4 @@ public class PaisMapperImpl implements Mapper<Pais, PaisDto> {
         return modelMapper.map(paisDto, Pais.class);
     }
 }
+

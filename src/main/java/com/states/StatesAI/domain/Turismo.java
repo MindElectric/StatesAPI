@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.Length;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +18,7 @@ public class Turismo {
 
     private String nombre;
 
+    @Column(name = "descripcion", nullable = false, length = Length.LOB_DEFAULT)
     private String descripcion;
 
     @ManyToOne(cascade = CascadeType.ALL)

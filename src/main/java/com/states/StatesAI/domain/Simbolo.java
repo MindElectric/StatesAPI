@@ -5,15 +5,17 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "escudo")
-public class Escudo {
+@Table(name = "simbolo")
+public class Simbolo {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID, generator = "escudo_id_seq")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     private String url;
 

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.Length;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +19,11 @@ public class Ciudad {
     @Column(name = "nombre", nullable = false, length = 30)
     private String nombre;
 
+    @Column(name = "descripcion", nullable = false, length = Length.LOB_DEFAULT)
     private String descripcion;
+
+    @Column(name = "tamanio", nullable = false, length = 50)
+    private String tamanio;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "estado_id")
