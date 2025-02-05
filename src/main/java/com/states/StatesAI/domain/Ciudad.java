@@ -1,11 +1,11 @@
 package com.states.StatesAI.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.Length;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -27,5 +27,8 @@ public class Ciudad {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "estado_id")
+    @ToString.Exclude
+    @JsonBackReference
     private Estado estado;
+
 }

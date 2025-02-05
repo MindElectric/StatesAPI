@@ -1,9 +1,11 @@
 package com.states.StatesAI.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Length;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -38,4 +40,9 @@ public class Estado {
     @ToString.Exclude
     @JsonBackReference
     private Pais pais;
+
+    @OneToMany(mappedBy = "estado", cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @JsonManagedReference
+    private Set<Ciudad> ciudad;
 }

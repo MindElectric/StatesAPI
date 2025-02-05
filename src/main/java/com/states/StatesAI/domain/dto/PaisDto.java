@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -22,5 +21,5 @@ public class PaisDto {
     private String esperanzaDeVida;
     private String formaDeGobierno;
     private String tamanio;
-    private List<Estado> estado;
+    private Set<Estado> estado;
 }

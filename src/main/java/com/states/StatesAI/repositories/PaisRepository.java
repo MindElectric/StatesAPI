@@ -7,6 +7,9 @@ import java.util.Optional;
 //import org.springframework.data.repository.CrudRepository;
 
 public interface PaisRepository extends JpaRepository<Pais, Long> {
-    @Query("SELECT p FROM Pais p LEFT JOIN FETCH p.estado WHERE p.id = :id")
+    @Query("SELECT p FROM Pais p " +
+            "LEFT JOIN FETCH p.estado e " +
+            "LEFT JOIN FETCH e.ciudad c " +
+            "WHERE p.id = :id")
     Optional<Pais> findByIdWithStates(Long id);
 }

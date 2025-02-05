@@ -1,8 +1,11 @@
 package com.states.StatesAI.services;
 
+import com.states.StatesAI.domain.Ciudad;
+import com.states.StatesAI.domain.Estado;
 import com.states.StatesAI.domain.Pais;
 import com.states.StatesAI.repositories.PaisRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,10 +31,20 @@ public class PaisServiceImpl implements PaisService{
     }
 
     @Override
+    @Transactional
     public Optional<Pais> findOne(Long id) {
-//        return paisRepository.findByIdWithStates(id);
-        Pais country = paisRepository.findByIdWithStates(id).orElseThrow(() -> new RuntimeException("Country not found"));
-        System.out.println("Estados: " + country.getEstado());
+        // Fetch country with states (without cities)
+        Pais country = paisRepository.findByIdWithStates(id)
+                .orElseThrow(() -> new RuntimeException("Country not found"));
+
+        // Debugging: Print states and cities
+        for (Estado estado : country.getEstado()) {
+            System.out.println("Estado: " + estado.getNombre());
+
+            for (Ciudad ciudad : estado.getCiudad()) {
+                System.out.println("  Ciudad: " + ciudad.getNombre());
+            }
+        }
         return Optional.of(country);
     }
 }

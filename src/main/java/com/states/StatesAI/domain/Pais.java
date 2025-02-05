@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.Length;
 
-import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -30,7 +30,7 @@ public class Pais {
     @Column(name = "continente", nullable = false, length = 50)
     private String continente;
 
-    @Column(name = "capital", nullable = true, length = 50)
+    @Column(name = "capital", length = 50)
     private String capital;
 
     @Column(name = "moneda", nullable = false, length = 100)
@@ -48,5 +48,7 @@ public class Pais {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "pais", orphanRemoval = true)
     @ToString.Exclude
     @JsonManagedReference
-    private List<Estado> estado;
+    private Set<Estado> estado;
+
+
 }
