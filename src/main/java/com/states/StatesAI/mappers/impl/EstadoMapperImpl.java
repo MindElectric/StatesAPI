@@ -4,7 +4,9 @@ import com.states.StatesAI.domain.Estado;
 import com.states.StatesAI.domain.dto.EstadoDto;
 import com.states.StatesAI.mappers.Mapper;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EstadoMapperImpl implements Mapper<Estado, EstadoDto> {
     private final ModelMapper modelMapper;
 
